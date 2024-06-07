@@ -1,75 +1,33 @@
-body, html {
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
-    padding: 0;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
 }
 
 .game-container {
-    position: relative;
-    width: 100%;
-    height: 80vh; /* 80% of the viewport height */
-    background: #87CEEB; /* Sky blue background */
-    overflow: hidden;
-}
-
-.background {
-    position: absolute;
-    width: 200%;
-    height: 100%;
-    background: url('background.png') repeat-x; /* Add your own background image */
-    animation: moveBackground 10s linear infinite;
-}
-
-@keyframes moveBackground {
-    from { left: 0; }
-    to { left: -100%; }
+    text-align: center;
 }
 
 .road {
-    position: absolute;
-    bottom: 0;
-    width: 200%;
+    width: 100vw; /* changed to cover screen width */
     height: 200px;
-    background: #333;
-    animation: moveRoad 5s linear infinite;
-}
-
-@keyframes moveRoad {
-    from { left: 0; }
-    to { left: -100%; }
+    background-color: #888;
+    position: relative;
+    margin-bottom: 20px;
 }
 
 .bike {
     position: absolute;
-    bottom: 200px; /* Position the bike above the road */
+    bottom: 0;
     left: 50%;
-    width: 100px;
-    height: 50px;
-    background: url('bike.png') no-repeat center center; /* Add your own bike image */
-    background-size: contain;
     transform: translateX(-50%);
 }
 
-.controls {
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    margin: 0 10px;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #0056b3;
+.controls button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
 }
