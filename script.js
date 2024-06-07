@@ -4,15 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const background = document.querySelector('.background');
     let bikePosition = 50; // Start in the middle of the screen (50%)
 
-    // Move bike based on key press
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') {
-            bikePosition += 5; // Move bike right
-            if (bikePosition > 95) bikePosition = 95; // Prevent moving off screen
-        } else if (e.key === 'ArrowLeft') {
-            bikePosition -= 5; // Move bike left
-            if (bikePosition < 5) bikePosition = 5; // Prevent moving off screen
-        }
+    // Move bike based on button press
+    document.getElementById('leftBtn').addEventListener('click', () => {
+        bikePosition -= 5; // Move bike left
+        if (bikePosition < 5) bikePosition = 5; // Prevent moving off screen
+        bike.style.left = bikePosition + '%';
+    });
+
+    document.getElementById('rightBtn').addEventListener('click', () => {
+        bikePosition += 5; // Move bike right
+        if (bikePosition > 95) bikePosition = 95; // Prevent moving off screen
         bike.style.left = bikePosition + '%';
     });
 
@@ -31,15 +32,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-            toggleAnimation(true);
-        }
+    document.getElementById('leftBtn').addEventListener('mousedown', () => {
+        toggleAnimation(true);
     });
 
-    document.addEventListener('keyup', (e) => {
-        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-            toggleAnimation(false);
-        }
+    document.getElementById('rightBtn').addEventListener('mousedown', () => {
+        toggleAnimation(true);
+    });
+
+    document.addEventListener('mouseup', () => {
+        toggleAnimation(false);
     });
 });
